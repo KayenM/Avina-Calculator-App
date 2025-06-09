@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Cha Ching Calculator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 2rem;
+    }
+    label, input, button {
+      font-size: 1.2rem;
+    }
+    #output {
+      margin-top: 1rem;
+      font-size: 1.5rem;
+      color: green;
+    }
+  </style>
+</head>
+<body>
+
+  <label for="hours">Hours:</label>
+  <input type="number" id="hours" placeholder="Enter hours" />
+  <button onclick="calculate()">Cha Ching 💸</button>
+
+  <div id="output"></div>
+
+  <script>
+    function calculate() {
+      const rate = 17.2;
+      const hours = parseFloat(document.getElementById("hours").value);
+      const outputDiv = document.getElementById("output");
+
+      if (isNaN(hours)) {
+        outputDiv.textContent = "Please enter a valid number of hours.";
+        return;
+      }
+
+      const earnings = (hours * rate).toFixed(2);
+      outputDiv.textContent = `Cha ching $${earnings} in ya pocket!`;
+    }
+  </script>
+
+</body>
+</html>
